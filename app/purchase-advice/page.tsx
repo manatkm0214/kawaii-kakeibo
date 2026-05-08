@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useStore, useMonthSummary } from '@/lib/store'
+import AmountInput from '@/components/AmountInput'
 
 interface CheckResult {
   label: string
@@ -12,7 +13,7 @@ export default function PurchaseAdvicePage() {
   const { data } = useStore()
   const { income, expense, balance } = useMonthSummary()
   const [itemName, setItemName] = useState('')
-  const [itemAmount, setItemAmount] = useState<number | ''>('')
+  const [itemAmount, setItemAmount] = useState<number>(0)
   const [itemCategory, setItemCategory] = useState('')
   const [necessity, setNecessity] = useState(3)
   const [checked, setChecked] = useState(false)
@@ -111,7 +112,7 @@ export default function PurchaseAdvicePage() {
           </div>
           <div>
             <label className="text-xs text-gray-500 mb-1 block">金額</label>
-            <input type="number" placeholder="0" value={itemAmount} onChange={e => setItemAmount(e.target.value === '' ? '' : +e.target.value)} className="input-cell" />
+            <AmountInput value={itemAmount} onChange={v => setItemAmount(v)} />
           </div>
           <div>
             <label className="text-xs text-gray-500 mb-1 block">カテゴリ</label>
@@ -135,7 +136,7 @@ export default function PurchaseAdvicePage() {
         </div>
         <button
           onClick={() => setChecked(true)}
-          disabled={!itemName || !itemAmount || !itemCategory}
+          disabled={!itemName || itemAmount <= 0 || !itemCategory}
           className="mt-4 w-full bg-peach-300 hover:bg-peach-400 disabled:bg-gray-200 disabled:cursor-not-allowed text-white py-2 rounded-xl font-bold text-sm transition-colors"
         >
           診断する

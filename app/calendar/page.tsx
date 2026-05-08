@@ -220,14 +220,14 @@ export default function CalendarPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">種別</label>
-                <select value={editTx.type || 'expense'} onChange={e => setEditTx({ ...editTx, type: e.target.value as 'income' | 'expense' })} className="input-cell">
+                <select title="種別" value={editTx.type || 'expense'} onChange={e => setEditTx({ ...editTx, type: e.target.value as 'income' | 'expense' })} className="input-cell">
                   <option value="expense">支出</option>
                   <option value="income">収入</option>
                 </select>
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">カテゴリ</label>
-                <select value={editTx.category || ''} onChange={e => setEditTx({ ...editTx, category: e.target.value })} className="input-cell">
+                <select title="カテゴリ" value={editTx.category || ''} onChange={e => setEditTx({ ...editTx, category: e.target.value })} className="input-cell">
                   <option value="">選択してください</option>
                   {(editTx.type === 'income' ? incomeCats : expenseCats).map(c => <option key={c}>{c}</option>)}
                 </select>
@@ -238,7 +238,7 @@ export default function CalendarPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">メモ</label>
-                <input type="text" value={editTx.memo || ''} onChange={e => setEditTx({ ...editTx, memo: e.target.value })} className="input-cell" />
+                <input type="text" title="メモ" placeholder="メモ（任意）" value={editTx.memo || ''} onChange={e => setEditTx({ ...editTx, memo: e.target.value })} className="input-cell" />
               </div>
             </div>
             <div className="flex gap-2 mt-4">

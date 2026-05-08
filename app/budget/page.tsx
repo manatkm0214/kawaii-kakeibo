@@ -89,6 +89,8 @@ export default function BudgetPage() {
                   value={alloc.percent}
                   onChange={e => updateAlloc(idx, +e.target.value)}
                   className="flex-1 min-w-24 accent-pink-400"
+                  title={`${alloc.category} 配分スライダー`}
+                  aria-label={`${alloc.category} 配分スライダー`}
                 />
                 <div className="flex items-center gap-1">
                   <input
@@ -97,6 +99,8 @@ export default function BudgetPage() {
                     value={alloc.percent}
                     onChange={e => updateAlloc(idx, +e.target.value)}
                     className="input-cell w-16 text-center"
+                    title={`${alloc.category} 配分%`}
+                    aria-label={`${alloc.category} 配分%`}
                   />
                   <span className="text-gray-500 text-sm">%</span>
                 </div>

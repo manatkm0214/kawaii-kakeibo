@@ -160,7 +160,7 @@ export default function InvestmentsPage() {
                       <AmountInput value={inv.amount} onChange={v => updateFormItem(idx, 'amount', v)} />
                     </td>
                     <td className="py-2">
-                      <input type="number" min={0} max={100} value={inv.targetPercent} onChange={e => updateFormItem(idx, 'targetPercent', +e.target.value)} className="input-cell w-16 text-center" title={`${inv.name} 目標%`} placeholder="0" />
+                      <input type="number" min={0} max={100} value={inv.targetPercent} onChange={e => updateFormItem(idx, 'targetPercent', +e.target.value)} className="input-cell w-20 text-center" title={`${inv.name} 目標%`} placeholder="0" />
                     </td>
                     <td className="py-2">
                       <AmountInput value={inv.monthlyTarget} onChange={v => updateFormItem(idx, 'monthlyTarget', v)} />

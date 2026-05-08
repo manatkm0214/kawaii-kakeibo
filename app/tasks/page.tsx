@@ -190,7 +190,7 @@ export default function TasksPage() {
                 <div className="flex items-center gap-2">
                   <input type="number" title="タイプコード" min={0} max={9} value={editTask.typeCode ?? 2}
                     onChange={e => setEditTask({ ...editTask, typeCode: +e.target.value })}
-                    className="input-cell w-16 text-center text-lg font-bold" />
+                    className="input-cell w-20 text-center text-lg font-bold" />
                   <span className={`text-sm px-2 py-1 rounded-lg ${TYPE_LABELS[editTask.typeCode ?? 2]?.color}`}>
                     {TYPE_LABELS[editTask.typeCode ?? 2]?.icon}{TYPE_LABELS[editTask.typeCode ?? 2]?.label}
                   </span>
@@ -221,7 +221,7 @@ export default function TasksPage() {
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">優先度 (1-5)</label>
-                  <input type="number" title="優先度" min={1} max={5} value={editTask.priority || 3} onChange={e => setEditTask({ ...editTask, priority: +e.target.value })} className="input-cell text-center" />
+                  <input type="number" title="優先度" min={1} max={5} value={editTask.priority || 3} onChange={e => setEditTask({ ...editTask, priority: +e.target.value })} className="input-cell w-20 text-center" />
                 </div>
               </div>
               <div>

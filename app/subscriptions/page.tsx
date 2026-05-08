@@ -152,7 +152,7 @@ export default function SubscriptionsPage() {
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">引落日 (1-31) *</label>
-                  <input type="number" title="引落日" min={1} max={31} value={editSub.debitDay || 1} onChange={e => setEditSub({ ...editSub, debitDay: +e.target.value })} className="input-cell text-center" />
+                  <input type="number" title="引落日" min={1} max={31} value={editSub.debitDay || 1} onChange={e => setEditSub({ ...editSub, debitDay: +e.target.value })} className="input-cell w-20 text-center" />
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">金額 *</label>

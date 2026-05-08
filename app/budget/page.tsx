@@ -61,7 +61,7 @@ export default function BudgetPage() {
       <div className="card border-2 border-lemon-300 mb-5">
         <h3 className="text-sm font-bold text-gray-600 mb-3">想定月収入</h3>
         <div className="flex items-center gap-3">
-          <div className="max-w-xs">
+          <div className="w-full max-w-sm">
             <AmountInput value={income} onChange={v => setIncome(v)} className="text-lg font-bold" />
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function BudgetPage() {
                     min={0} max={100}
                     value={alloc.percent}
                     onChange={e => updateAlloc(idx, +e.target.value)}
-                    className="input-cell w-16 text-center"
+                    className="input-cell w-20 text-center"
                     title={`${alloc.category} 配分%`}
                     aria-label={`${alloc.category} 配分%`}
                   />

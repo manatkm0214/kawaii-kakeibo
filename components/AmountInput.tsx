@@ -51,7 +51,7 @@ export default function AmountInput({ value, onChange, className = '', placehold
         type="number"
         value={display}
         onChange={e => handleDisplay(e.target.value)}
-        className={`input-cell flex-1 min-w-0 ${className}`}
+        className={`input-cell flex-1 min-w-16 ${className}`}
         placeholder={placeholder}
         required={required}
         min={0}

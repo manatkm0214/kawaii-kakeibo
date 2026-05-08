@@ -78,7 +78,7 @@ export default function SavingsPage() {
               <h4 className="text-xs font-bold text-sky-500">生活防衛資金</h4>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">目標月数 (推奨: 6ヶ月)</label>
-                <input type="number" value={form.emergencyMonths} onChange={e => setForm({ ...form, emergencyMonths: +e.target.value })} className="input-cell" />
+                <input type="number" title="目標月数" value={form.emergencyMonths} onChange={e => setForm({ ...form, emergencyMonths: +e.target.value })} className="input-cell" />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">現在の防衛資金額</label>

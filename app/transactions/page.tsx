@@ -96,12 +96,12 @@ export default function TransactionsPage() {
             onChange={e => setSearch(e.target.value)}
             className="input-cell flex-1 min-w-40"
           />
-          <select value={filterType} onChange={e => setFilterType(e.target.value as 'all' | 'income' | 'expense')} className="input-cell w-28">
+          <select title="種別フィルター" value={filterType} onChange={e => setFilterType(e.target.value as 'all' | 'income' | 'expense')} className="input-cell w-28">
             <option value="all">全て</option>
             <option value="income">収入</option>
             <option value="expense">支出</option>
           </select>
-          <select value={filterCat} onChange={e => setFilterCat(e.target.value)} className="input-cell w-32">
+          <select title="カテゴリフィルター" value={filterCat} onChange={e => setFilterCat(e.target.value)} className="input-cell w-32">
             <option value="">全カテゴリ</option>
             {allCats.map(c => <option key={c}>{c}</option>)}
           </select>
@@ -173,7 +173,7 @@ export default function TransactionsPage() {
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">種別 *</label>
-                  <select value={editTx.type || 'expense'} onChange={e => setEditTx({ ...editTx, type: e.target.value as 'income' | 'expense', category: '' })} className="input-cell">
+                  <select title="種別" value={editTx.type || 'expense'} onChange={e => setEditTx({ ...editTx, type: e.target.value as 'income' | 'expense', category: '' })} className="input-cell">
                     <option value="expense">支出</option>
                     <option value="income">収入</option>
                   </select>
@@ -181,7 +181,7 @@ export default function TransactionsPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">カテゴリ *</label>
-                <select value={editTx.category || ''} onChange={e => setEditTx({ ...editTx, category: e.target.value })} className="input-cell">
+                <select title="カテゴリ" value={editTx.category || ''} onChange={e => setEditTx({ ...editTx, category: e.target.value })} className="input-cell">
                   <option value="">選択してください</option>
                   {(editTx.type === 'income' ? incomeCats : expenseCats).map(c => <option key={c}>{c}</option>)}
                 </select>
@@ -192,18 +192,18 @@ export default function TransactionsPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">支払方法</label>
-                <select value={editTx.paymentMethod || ''} onChange={e => setEditTx({ ...editTx, paymentMethod: e.target.value })} className="input-cell">
+                <select title="支払方法" value={editTx.paymentMethod || ''} onChange={e => setEditTx({ ...editTx, paymentMethod: e.target.value })} className="input-cell">
                   <option value="">-</option>
                   {PAYMENT_METHODS.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">メモ</label>
-                <input type="text" value={editTx.memo || ''} onChange={e => setEditTx({ ...editTx, memo: e.target.value })} className="input-cell" />
+                <input type="text" title="メモ" placeholder="メモ（任意）" value={editTx.memo || ''} onChange={e => setEditTx({ ...editTx, memo: e.target.value })} className="input-cell" />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">備考</label>
-                <input type="text" value={editTx.note || ''} onChange={e => setEditTx({ ...editTx, note: e.target.value })} className="input-cell" />
+                <input type="text" title="備考" placeholder="備考（任意）" value={editTx.note || ''} onChange={e => setEditTx({ ...editTx, note: e.target.value })} className="input-cell" />
               </div>
             </div>
             <div className="flex gap-2 mt-4">

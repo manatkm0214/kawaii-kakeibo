@@ -81,6 +81,7 @@ export default function DashboardPage() {
         <h2 className="text-xl font-bold text-pink-400">🏠 ダッシュボード</h2>
         <div className="flex items-center gap-2">
           <select
+            title="年を選択"
             value={data.selectedYear}
             onChange={e => dispatch({ type: 'SET_MONTH', year: +e.target.value, month: data.selectedMonth })}
             className="input-cell w-24"
@@ -88,6 +89,7 @@ export default function DashboardPage() {
             {YEARS.map(y => <option key={y} value={y}>{y}年</option>)}
           </select>
           <select
+            title="月を選択"
             value={data.selectedMonth}
             onChange={e => dispatch({ type: 'SET_MONTH', year: data.selectedYear, month: +e.target.value })}
             className="input-cell w-20"

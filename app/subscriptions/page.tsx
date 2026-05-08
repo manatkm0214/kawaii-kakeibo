@@ -152,7 +152,7 @@ export default function SubscriptionsPage() {
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">引落日 (1-31) *</label>
-                  <input type="number" min={1} max={31} value={editSub.debitDay || 1} onChange={e => setEditSub({ ...editSub, debitDay: +e.target.value })} className="input-cell text-center" />
+                  <input type="number" title="引落日" min={1} max={31} value={editSub.debitDay || 1} onChange={e => setEditSub({ ...editSub, debitDay: +e.target.value })} className="input-cell text-center" />
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">金額 *</label>
@@ -161,7 +161,7 @@ export default function SubscriptionsPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">支払元</label>
-                <select value={editSub.paymentSource || '銀行口座'} onChange={e => setEditSub({ ...editSub, paymentSource: e.target.value })} className="input-cell">
+                <select title="支払元" value={editSub.paymentSource || '銀行口座'} onChange={e => setEditSub({ ...editSub, paymentSource: e.target.value })} className="input-cell">
                   {PAYMENT_SOURCES.map(p => <option key={p}>{p}</option>)}
                 </select>
               </div>

@@ -115,7 +115,7 @@ export default function PurchaseAdvicePage() {
           </div>
           <div>
             <label className="text-xs text-gray-500 mb-1 block">カテゴリ</label>
-            <select value={itemCategory} onChange={e => setItemCategory(e.target.value)} className="input-cell">
+            <select title="カテゴリ" value={itemCategory} onChange={e => setItemCategory(e.target.value)} className="input-cell">
               <option value="">選択してください</option>
               {expenseCats.map(c => <option key={c}>{c}</option>)}
             </select>

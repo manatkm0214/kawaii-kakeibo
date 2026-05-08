@@ -188,7 +188,7 @@ export default function TasksPage() {
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">タイプ (0-9)</label>
                 <div className="flex items-center gap-2">
-                  <input type="number" min={0} max={9} value={editTask.typeCode ?? 2}
+                  <input type="number" title="タイプコード" min={0} max={9} value={editTask.typeCode ?? 2}
                     onChange={e => setEditTask({ ...editTask, typeCode: +e.target.value })}
                     className="input-cell w-16 text-center text-lg font-bold" />
                   <span className={`text-sm px-2 py-1 rounded-lg ${TYPE_LABELS[editTask.typeCode ?? 2]?.color}`}>
@@ -198,7 +198,7 @@ export default function TasksPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">項目名 *</label>
-                <input type="text" value={editTask.name || ''} onChange={e => setEditTask({ ...editTask, name: e.target.value })} className="input-cell" />
+                <input type="text" title="項目名" placeholder="項目名" value={editTask.name || ''} onChange={e => setEditTask({ ...editTask, name: e.target.value })} className="input-cell" />
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
@@ -213,7 +213,7 @@ export default function TasksPage() {
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">ステータス</label>
-                  <select value={editTask.status || 'pending'} onChange={e => setEditTask({ ...editTask, status: e.target.value as Task['status'] })} className="input-cell">
+                  <select title="ステータス" value={editTask.status || 'pending'} onChange={e => setEditTask({ ...editTask, status: e.target.value as Task['status'] })} className="input-cell">
                     <option value="pending">未了</option>
                     <option value="done">完了</option>
                     <option value="skipped">スキップ</option>
@@ -221,12 +221,12 @@ export default function TasksPage() {
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">優先度 (1-5)</label>
-                  <input type="number" min={1} max={5} value={editTask.priority || 3} onChange={e => setEditTask({ ...editTask, priority: +e.target.value })} className="input-cell text-center" />
+                  <input type="number" title="優先度" min={1} max={5} value={editTask.priority || 3} onChange={e => setEditTask({ ...editTask, priority: +e.target.value })} className="input-cell text-center" />
                 </div>
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">メモ</label>
-                <input type="text" value={editTask.note || ''} onChange={e => setEditTask({ ...editTask, note: e.target.value })} className="input-cell" />
+                <input type="text" title="メモ" placeholder="メモ（任意）" value={editTask.note || ''} onChange={e => setEditTask({ ...editTask, note: e.target.value })} className="input-cell" />
               </div>
             </div>
             <div className="flex gap-2 mt-4">

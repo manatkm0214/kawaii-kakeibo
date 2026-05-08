@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useStore } from '@/lib/store'
 import { Subscription } from '@/lib/types'
+import AmountInput from '@/components/AmountInput'
 
 function getStatus(debitDay: number): { label: string; color: string } {
   const today = new Date().getDate()
@@ -155,7 +156,7 @@ export default function SubscriptionsPage() {
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">金額 *</label>
-                  <input type="number" value={editSub.amount || ''} onChange={e => setEditSub({ ...editSub, amount: +e.target.value })} className="input-cell" />
+                  <AmountInput value={editSub.amount || 0} onChange={v => setEditSub({ ...editSub, amount: v })} required />
                 </div>
               </div>
               <div>

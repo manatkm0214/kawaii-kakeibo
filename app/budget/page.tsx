@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useStore } from '@/lib/store'
 import { BudgetAllocation } from '@/lib/types'
+import AmountInput from '@/components/AmountInput'
 
 const RECOMMENDED: Record<string, number> = {
   '食費': 15, '家賃': 30, '光熱費': 5, '通信費': 3,
@@ -60,13 +61,9 @@ export default function BudgetPage() {
       <div className="card border-2 border-lemon-300 mb-5">
         <h3 className="text-sm font-bold text-gray-600 mb-3">想定月収入</h3>
         <div className="flex items-center gap-3">
-          <input
-            type="number"
-            value={income}
-            onChange={e => setIncome(+e.target.value)}
-            className="input-cell max-w-xs text-lg font-bold"
-          />
-          <span className="text-gray-500">円</span>
+          <div className="max-w-xs">
+            <AmountInput value={income} onChange={v => setIncome(v)} className="text-lg font-bold" />
+          </div>
         </div>
       </div>
 

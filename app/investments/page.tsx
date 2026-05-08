@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useStore } from '@/lib/store'
 import { Investment } from '@/lib/types'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts'
+import AmountInput from '@/components/AmountInput'
 
 const COLORS = ['#A8E6CF', '#87CEEB', '#FF9BB5', '#C8B8E8', '#FFF3B0', '#FFAA80']
 const ASSET_ICONS: Record<string, string> = {
@@ -156,13 +157,13 @@ export default function InvestmentsPage() {
                   <tr key={idx} className="border-b border-gray-50">
                     <td className="py-2 font-medium">{ASSET_ICONS[inv.name] || '💰'} {inv.name}</td>
                     <td className="py-2">
-                      <input type="number" value={inv.amount} onChange={e => updateFormItem(idx, 'amount', +e.target.value)} className="input-cell text-right" title={`${inv.name} 現在額`} placeholder="0" />
+                      <AmountInput value={inv.amount} onChange={v => updateFormItem(idx, 'amount', v)} />
                     </td>
                     <td className="py-2">
                       <input type="number" min={0} max={100} value={inv.targetPercent} onChange={e => updateFormItem(idx, 'targetPercent', +e.target.value)} className="input-cell w-16 text-center" title={`${inv.name} 目標%`} placeholder="0" />
                     </td>
                     <td className="py-2">
-                      <input type="number" value={inv.monthlyTarget} onChange={e => updateFormItem(idx, 'monthlyTarget', +e.target.value)} className="input-cell text-right" title={`${inv.name} 月積立`} placeholder="0" />
+                      <AmountInput value={inv.monthlyTarget} onChange={v => updateFormItem(idx, 'monthlyTarget', v)} />
                     </td>
                   </tr>
                 ))}

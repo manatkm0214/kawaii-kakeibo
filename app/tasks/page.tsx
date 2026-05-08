@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useStore } from '@/lib/store'
 import { Task } from '@/lib/types'
+import AmountInput from '@/components/AmountInput'
 
 const TYPE_LABELS: Record<number, { label: string; color: string; icon: string }> = {
   0: { label: 'その他', color: 'bg-gray-100 text-gray-500', icon: '📌' },
@@ -202,7 +203,7 @@ export default function TasksPage() {
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">金額</label>
-                  <input type="number" value={editTask.amount || ''} onChange={e => setEditTask({ ...editTask, amount: +e.target.value })} className="input-cell" />
+                  <AmountInput value={editTask.amount || 0} onChange={v => setEditTask({ ...editTask, amount: v })} />
                 </div>
                 <div>
                   <label className="text-xs text-gray-500 mb-1 block">期日 *</label>

@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useStore, useMonthSummary } from '@/lib/store'
 import { SavingsGoal } from '@/lib/types'
+import AmountInput from '@/components/AmountInput'
 
 function ProgressBar({ value, max, color }: { value: number; max: number; color: string }) {
   const pct = max > 0 ? Math.min(100, value / max * 100) : 0
@@ -62,15 +63,15 @@ export default function SavingsPage() {
               <h4 className="text-xs font-bold text-mint-500">先取貯金</h4>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">目標額</label>
-                <input type="number" value={form.savingsTarget} onChange={e => setForm({ ...form, savingsTarget: +e.target.value })} className="input-cell" />
+                <AmountInput value={form.savingsTarget} onChange={v => setForm({ ...form, savingsTarget: v })} />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">現在の達成額</label>
-                <input type="number" value={form.savingsCurrent} onChange={e => setForm({ ...form, savingsCurrent: +e.target.value })} className="input-cell" />
+                <AmountInput value={form.savingsCurrent} onChange={v => setForm({ ...form, savingsCurrent: v })} />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">毎月の積立予定額</label>
-                <input type="number" value={form.savingsMonthly} onChange={e => setForm({ ...form, savingsMonthly: +e.target.value })} className="input-cell" />
+                <AmountInput value={form.savingsMonthly} onChange={v => setForm({ ...form, savingsMonthly: v })} />
               </div>
             </div>
             <div className="space-y-3">
@@ -81,11 +82,11 @@ export default function SavingsPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">現在の防衛資金額</label>
-                <input type="number" value={form.emergencyCurrent} onChange={e => setForm({ ...form, emergencyCurrent: +e.target.value })} className="input-cell" />
+                <AmountInput value={form.emergencyCurrent} onChange={v => setForm({ ...form, emergencyCurrent: v })} />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">毎月の積立予定額</label>
-                <input type="number" value={form.emergencyMonthly} onChange={e => setForm({ ...form, emergencyMonthly: +e.target.value })} className="input-cell" />
+                <AmountInput value={form.emergencyMonthly} onChange={v => setForm({ ...form, emergencyMonthly: v })} />
               </div>
             </div>
           </div>

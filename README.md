@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ☆ かわいい家計簿 プロ版
 
-## Getting Started
+毎日のお金管理を楽しく、かわいく♪
 
-First, run the development server:
+本格的な家計簿機能を全部詰め込んだ Web アプリです。  
+収入・支出・貯金・投資・タスク管理まで、1つのファイルで完結します。
+
+**🔗 [デモを見る](https://kawaii-kakeibo.vercel.app)**
+
+---
+
+## 機能一覧（12シート）
+
+| # | ページ | 主な機能 |
+|---|--------|---------|
+| 1 | **ダッシュボード** | 月選択・サマリーカード・KPI8種・予算チェック・安全度スコア・生活レベル評価 |
+| 2 | **KPI分析** | 12財務指標（貯蓄率・浪費率・固定費率・CF指数など）+ 判定マーク・アドバイス |
+| 3 | **予算管理** | カテゴリ別配分・余剰振り分け（先取/投資/防衛/ご褒美）・トレードオフ表 |
+| 4 | **カレンダー** | 月間収支カレンダー・日別クリック入力 |
+| 5 | **取引履歴** | 全取引一覧・フィルター・並び替え・色分け（収入=ミント/支出=ピンク） |
+| 6 | **タスク管理** | 取引予定リスト・0〜9タイプ選択・期日カウントダウン |
+| 7 | **引落予約** | 固定費スケジュール・状態自動判定（支払済/今日!/もうすぐ/予定） |
+| 8 | **貯蓄目標** | 先取貯金・生活防衛資金・プログレスバー・達成予定月計算 |
+| 9 | **投資/資産** | 6種資産配分・円グラフ・目標%との差異表示 |
+| 10 | **購入アドバイス** | 7項目診断で「買って大丈夫?」を自動判定 |
+| 11 | **月次レポート** | カテゴリ別ランキング・円グラフ・6ヶ月収支推移 |
+| 12 | **設定** | カテゴリマスタ管理・予算目安設定 |
+
+---
+
+## 技術スタック
+
+- **フレームワーク**: [Next.js 15](https://nextjs.org/) (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS v3（パステルカラーカスタムテーマ）
+- **グラフ**: [Recharts](https://recharts.org/)
+- **状態管理**: React Context + useReducer
+- **データ保存**: localStorage（ブラウザ内に自動保存）
+- **デプロイ**: [Vercel](https://vercel.com/)
+
+---
+
+## ローカルで動かす
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# リポジトリをクローン
+git clone https://github.com/manatkm0214/kawaii-kakeibo.git
+cd kawaii-kakeibo
+
+# 依存パッケージをインストール（devDependenciesを含める）
+npm install --include=dev
+
+# 開発サーバー起動
+NODE_ENV=development npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開く。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **Note**: 環境変数 `NODE_ENV` がシステムで `production` に設定されている場合は、上記のように `NODE_ENV=development` を明示してください。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## データについて
 
-To learn more about Next.js, take a look at the following resources:
+- 全データはブラウザの **localStorage** に保存されます
+- 右下の 📤 ボタンから JSON ファイルとしてバックアップ可能
+- サーバーにデータは送信されません（完全ローカル動作）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 入力のコツ
 
-## Deploy on Vercel
+| セルの色 | 意味 |
+|----------|------|
+| 黄色背景 | 編集できる入力欄 |
+| 白背景 | 自動計算セル（触らなくてOK）|
+| ミント色 | 収入・プラス・良い状態 |
+| ピンク | 支出・マイナス・要注意 |
+| 赤系 | 予算オーバー・期日超過などの警告 |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### おすすめ入力フロー
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **設定** でカテゴリと予算目安を設定
+2. **予算管理** で月収入と配分%を設定
+3. **取引履歴** に収入・支出を記録
+4. **ダッシュボード** で状況をチェック
+5. **KPI分析** で12指標の健康度を確認
+6. **貯蓄目標** で先取貯金&防衛資金の進捗チェック
+7. 買い物前は **購入アドバイス** で診断
+
+---
+
+## ライセンス
+
+MIT

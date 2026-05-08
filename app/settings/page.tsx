@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useStore } from '@/lib/store'
 import { Category } from '@/lib/types'
+import AmountInput from '@/components/AmountInput'
 
 export default function SettingsPage() {
   const { data, dispatch } = useStore()
@@ -60,13 +61,7 @@ export default function SettingsPage() {
                 <span className="text-sm font-medium text-gray-700 w-24">{cat.name}</span>
                 <div className="flex items-center gap-1 flex-1">
                   <span className="text-xs text-gray-500">予算目安</span>
-                  <input
-                    type="number"
-                    value={cat.budgetAmount}
-                    onChange={e => updateBudget(cat.name, +e.target.value)}
-                    className="input-cell flex-1 text-right"
-                  />
-                  <span className="text-xs text-gray-500">円</span>
+                  <AmountInput value={cat.budgetAmount} onChange={v => updateBudget(cat.name, v)} />
                 </div>
                 <button onClick={() => removeCategory(cat.name)} className="text-gray-300 hover:text-pink-400 transition-colors">✕</button>
               </div>
@@ -83,13 +78,7 @@ export default function SettingsPage() {
                 <span className="text-sm font-medium text-gray-700 w-24">{cat.name}</span>
                 <div className="flex items-center gap-1 flex-1">
                   <span className="text-xs text-gray-500">予算</span>
-                  <input
-                    type="number"
-                    value={cat.budgetAmount}
-                    onChange={e => updateBudget(cat.name, +e.target.value)}
-                    className="input-cell flex-1 text-right"
-                  />
-                  <span className="text-xs text-gray-500">円</span>
+                  <AmountInput value={cat.budgetAmount} onChange={v => updateBudget(cat.name, v)} />
                 </div>
                 <button onClick={() => removeCategory(cat.name)} className="text-gray-300 hover:text-pink-400 transition-colors">✕</button>
               </div>
@@ -109,11 +98,11 @@ export default function SettingsPage() {
               onKeyDown={e => e.key === 'Enter' && addCategory()}
               className="input-cell flex-1"
             />
-            <select value={newCatType} onChange={e => setNewCatType(e.target.value as 'income' | 'expense')} className="input-cell w-20">
+            <select value={newCatType} onChange={e => setNewCatType(e.target.value as 'income' | 'expense')} className="input-cell w-20" title="カテゴリ種別">
               <option value="expense">支出</option>
               <option value="income">収入</option>
             </select>
-            <button onClick={addCategory} className="px-3 py-1 bg-sky-200 hover:bg-sky-300 text-sky-700 rounded-xl text-sm font-bold transition-colors">追加</button>
+            <button type="button" onClick={addCategory} className="px-3 py-1 bg-sky-200 hover:bg-sky-300 text-sky-700 rounded-xl text-sm font-bold transition-colors">追加</button>
           </div>
         </div>
 

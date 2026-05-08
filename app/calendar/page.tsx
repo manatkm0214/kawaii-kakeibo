@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useStore, useMonthTransactions } from '@/lib/store'
 import { Transaction } from '@/lib/types'
+import AmountInput from '@/components/AmountInput'
 
 function getDaysInMonth(year: number, month: number) {
   return new Date(year, month, 0).getDate()
@@ -233,7 +234,7 @@ export default function CalendarPage() {
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">金額</label>
-                <input type="number" value={editTx.amount || ''} onChange={e => setEditTx({ ...editTx, amount: +e.target.value })} className="input-cell" />
+                <AmountInput value={editTx.amount || 0} onChange={v => setEditTx({ ...editTx, amount: v })} required />
               </div>
               <div>
                 <label className="text-xs text-gray-500 mb-1 block">メモ</label>

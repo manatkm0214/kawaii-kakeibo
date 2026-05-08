@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FFF5F8;
+  --foreground: #3d2c35;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(255, 155, 181, 0.15);
+}
+
+.input-cell {
+  background: #FFF9B0;
+  border: 1px solid #FFE566;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.input-cell:focus {
+  border-color: #FF9BB5;
+  box-shadow: 0 0 0 3px rgba(255, 155, 181, 0.2);
+}
+
+.badge-excellent { background: #A8E6CF; color: #1a6b45; }
+.badge-good { background: #87CEEB; color: #1a4a6b; }
+.badge-normal { background: #FFF3B0; color: #6b5a1a; }
+.badge-warn { background: #FFAA80; color: #6b2a0a; }
+.badge-danger { background: #FF9BB5; color: #6b1a2a; }
+
+.progress-bar {
+  height: 12px;
+  border-radius: 6px;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #FF9BB5; border-radius: 3px; }
+
+@media print {
+  aside, .no-print, .fixed { display: none !important; }
+  main { margin-left: 0 !important; padding-top: 0 !important; }
+  body { background: white !important; color: #333 !important; }
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+  }
+  @page { margin: 15mm; size: A4; }
+  h2 { font-size: 16pt !important; }
+  table { font-size: 9pt !important; }
+}

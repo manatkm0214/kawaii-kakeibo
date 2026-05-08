@@ -60,6 +60,8 @@ export default function AmountInput({ value, onChange, className = '', placehold
         value={unit}
         onChange={e => handleUnit(e.target.value as Unit)}
         className="input-cell w-16 flex-shrink-0 text-center px-1"
+        title="単位"
+        aria-label="単位"
       >
         <option value="円">円</option>
         <option value="千円">千円</option>
